@@ -68,5 +68,4 @@ This repository will be updated continuously as I learn new concepts and modelin
 
 ---
 
-⭐ This repository reflects my step-by-step learning journey in digital design.
 
