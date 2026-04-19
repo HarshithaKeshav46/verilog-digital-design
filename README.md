@@ -1,7 +1,6 @@
-# verilog-digital-design
 # Verilog Digital Design
 
-Hi, I’m a learner in KVLSI Cohort 3, and this repository documents my ongoing learning and practice in Verilog digital design.
+I’m a learner in KVLSI Cohort 3, and this repository documents my ongoing learning and practice in Verilog digital design.
 
 This is a continuously updated repository where I implement digital circuits after each class, as part of my weekly hands-on practice.
 
