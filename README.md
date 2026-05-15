@@ -1,71 +1,110 @@
 # Verilog Digital Design
 
-I’m a learner in KVLSI Cohort 3, and this repository documents my ongoing learning and practice in Verilog digital design.
+This repository documents my hands-on learning journey in Verilog Digital Design as part of my KVLSI Cohort learning.
 
-This is a continuously updated repository where I implement digital circuits after each class, as part of my weekly hands-on practice.
+I regularly implement digital circuits after each class to strengthen my understanding of:
 
----
-
-## 🔹 About This Repository
-
-* All designs are implemented after attending KVLSI Cohort 3 sessions
-* Work is updated regularly based on weekly learning
-* Each circuit is verified using simulation and waveform analysis
-
-Currently, the following modeling styles are covered:
-
-* Gate-Level Modeling
-* Dataflow Modeling
-
-More modeling techniques will be added in the upcoming weeks.
+- Combinational Circuits
+- Hierarchical Design
+- Different Verilog Modeling Styles
+- Logic Design Problems
+- Simulation & Verification
 
 ---
 
-## 🔹 Implemented Circuits (So Far)
+## Repository Structure
 
-* Binary to Gray Code Converter
-* 2x4 Decoder
-* Full Adder
-* Full Subtractor
-* 1-bit Comparator
-* 3-bit Prime Detector
-
----
-
-## 🔹 Learning Approach
-
-* Concepts learned during cohort sessions
-* Independently implemented after class
-* Verified using EDA Playground
-* Outputs and waveforms analyzed for correctness
+### Multiplexers
+- 2X1 MUX
+- 4X1 MUX
+- 4X1 MUX using 2X1 MUX
+- 8X1 MUX using 4X1 + 2X1 MUX
+- 16X1 MUX using 4X1 MUX
+- Parameterized MUX
 
 ---
 
-## 🔹 Tools Used
-
-* Verilog HDL
-* EDA Playground
-
----
-
-## 🔹 Repository Structure
-
-* `Gate_level/` → Gate-level implementations
-* `Dataflow/` → Dataflow implementations
-
-Each folder contains:
-
-* Design files
-* Testbenches
-* Output screenshots
-* Waveform screenshots
+### Decoders
+- 2X4 Decoder
+- 3X8 Decoder using 2X4 Decoder
 
 ---
 
-## 🔗 Note
-
-This repository will be updated continuously as I learn new concepts and modeling techniques.
+### Encoders
+- 4X2 Encoder
+- 4X2 Priority Encoder
 
 ---
 
+### Adders and Subtractors
+#### Adders
+- Full Adder (Gate Level)
+- Full Adder (Dataflow)
+- Full Adder using Half Adder
+- Ripple Carry Adder
 
+#### Subtractors
+- Full Subtractor (Gate Level)
+- Full Subtractor (Dataflow)
+- Full Subtractor using Half Subtractor
+
+---
+
+### Comparators
+- 1-bit Comparator
+- N-bit Comparator
+- Maximum out of 3 Numbers
+
+---
+
+### Code Converters
+- Binary to Gray (Gate Level)
+- Binary to Gray (Dataflow)
+- Binary to Gray (Behavioral)
+
+---
+
+### Logic Applications
+- 3-bit Prime Detector
+  - Behavioral
+  - Dataflow
+  - Gate Level
+
+---
+
+## Verilog Modeling Styles Covered
+
+- Gate Level Modeling
+- Dataflow Modeling
+- Behavioral Modeling
+- Structural Modeling
+- Hierarchical Design
+
+---
+
+## Verification
+
+Each design includes:
+
+- Verilog implementation
+- Testbench files
+- Simulation output verification
+- Waveform/output screenshots
+
+---
+
+## Upcoming Additions
+
+I’m continuously updating this repository with:
+
+- Flip-Flops
+- Latches
+- Registers
+- Counters
+- FSM Design
+- ALU
+- Memory Design
+- More logic applications
+
+## Simulation Links
+Each project folder contains its individual EDA Playground simulation link.
