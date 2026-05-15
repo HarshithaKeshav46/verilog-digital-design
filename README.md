@@ -31,7 +31,6 @@ I regularly implement digital circuits after each class to strengthen my underst
 ---
 
 ### Encoders
-- 4X2 Encoder
 - 4X2 Priority Encoder
 
 ---
