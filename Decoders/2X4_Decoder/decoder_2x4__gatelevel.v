@@ -1,3 +1,4 @@
+//Gate level
 module decoder(O,I);
   input [1:0]I;
   output [3:0]O;
