@@ -27,6 +27,7 @@ I regularly implement digital circuits after each class to strengthen my underst
 ### Decoders
 - 2X4 Decoder
 - 3X8 Decoder using 2X4 Decoder
+- 4X16 Decoder using 3X8 Decoder
 
 ---
 
