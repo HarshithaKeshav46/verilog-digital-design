@@ -1,0 +1,33 @@
+module tb_up_counter_4bit;
+
+reg clk;
+reg reset;
+wire [3:0] count;
+
+up_counter_4bit uut (
+    .clk(clk),
+    .reset(reset),
+    .count(count)
+);
+
+// Clock generation
+always #5 clk = ~clk;
+
+initial begin
+    // Dump setup
+    $dumpfile("up_counter_4bit.vcd"); // VCD file name
+    $dumpvars(0, tb_up_counter_4bit); // dump all signals
+
+    clk = 0;
+    reset = 1;
+
+    #10 reset = 0;  // release reset
+
+    #200 $finish;
+end
+
+initial begin
+    $monitor("Time=%0t Count=%b", $time, count);
+end
+
+endmodule
