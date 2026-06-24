@@ -1,6 +1,6 @@
 module counter(clk,rst,count);
   input clk,rst;
-  output reg[3:0] count;
+  output [3:0] count;
   reg[3:0]temp;
   assign count=temp;
   always@(posedge clk or negedge rst)
