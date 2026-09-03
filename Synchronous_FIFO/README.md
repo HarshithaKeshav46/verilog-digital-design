@@ -66,147 +66,85 @@ The FIFO uses:
 - `full` to prevent writing when the FIFO is full.
 - `empty` to prevent reading when the FIFO is empty.
 
+## Working
+
 ### Write Operation
 
-```verilog
-if (wr_en && !full)
-    mem[wr_ptr] <= data_in;
-Read Operation
-if (rd_en && !empty)
-    data_out <= mem[rd_ptr];
+When `wr_en` is high and the FIFO is not full, `data_in` is written into the memory.
 
-The design performs both operations synchronously at the rising edge of the clock.
+```text
+wr_en = 1 && full = 0
+```
 
-Reset Operation
+The write pointer is incremented after the write operation.
 
-When rst is asserted, the design resets:
+### Read Operation
 
-Write pointer
-Read pointer
-Output data
-FIFO memory contents
+When `rd_en` is high and the FIFO is not empty, data is read from the memory.
 
-After reset, the FIFO starts in the empty state.
+```text
+rd_en = 1 && empty = 0
+```
 
-wr_ptr    = 0
-rd_ptr    = 0
-data_out  = 0
-empty     = 1
-full      = 0
-Verification
+The read pointer is incremented after the read operation.
 
-A Verilog testbench was developed to verify the basic FIFO operation.
+### Empty Condition
 
-The testbench provides:
+```text
+empty = (wr_ptr == rd_ptr)
+```
 
-Clock generation
-Reset control
-Write enable control
-Read enable control
-Input data stimulus
-Output monitoring
-Full/empty flag monitoring
-VCD waveform generation
-Test Sequence
+### Full Condition
 
-The current simulation performs the following sequence:
+```text
+full = ((wr_ptr + 1'b1) == rd_ptr)
+```
 
-Apply reset
-Write data = 5
-Write data = 10
-Disable write operation
-Enable read operation
-Read the first FIFO data
-Expected FIFO Behavior
-Write 5
-   ↓
-Write 10
-   ↓
-Read
-   ↓
-data_out = 5
-Simulation Results
+## Simulation
 
-The design was successfully compiled and simulated using QuestaSim.
+The testbench verifies:
 
-Errors   : 0
-Warnings : 0
+- Reset operation
+- Write operation
+- Read operation
+- FIFO data ordering
+- Full condition
+- Empty condition
 
-The simulation confirms that the first value written into the FIFO (5) is returned first during the read operation, demonstrating the FIFO's First-In First-Out behavior.
+### Test Sequence
 
-Simulation Log
-sim time=15, clk=1, rst=0, wr_en=1, rd_en=0,
-data_in=5, data_out=0, full=0, empty=0
+1. Apply reset
+2. Write data `5`
+3. Write data `10`
+4. Disable write operation
+5. Enable read operation
+6. Verify output data
 
-sim time=25, clk=1, rst=0, wr_en=1, rd_en=0,
-data_in=10, data_out=0, full=0, empty=0
+## Files
 
-sim time=45, clk=1, rst=0, wr_en=0, rd_en=1,
-data_in=10, data_out=5, full=0, empty=0
-Waveform
+- `Synchronous_FIFO_design.v` – FIFO RTL design
+- `Synchronous_FIFO_tb.v` – Testbench
+- `simulation_output.png` – Simulation output
+- `waveform.png` – Simulation waveform
+- `README.md` – Project documentation
 
-The waveform shows:
-
-Clock operation
-Synchronous reset
-Write enable
-Read enable
-Input data
-Output data
-Full flag
-Empty flag
-
-The waveform demonstrates the write of 5, followed by 10, and the subsequent read of 5.
-
-Files
-Synchronous_FIFO/
-│
-├── Synchronous_FIFO_design.v
-├── Synchronous_FIFO_tb.v
-├── waveform.png
-├── simulation_output.png
-└── README.md
-Synchronous_FIFO_design.v
-
-Contains the RTL implementation of the synchronous FIFO.
-
-Synchronous_FIFO_tb.v
-
-Contains the simulation stimulus, clock/reset generation, monitoring, and waveform dump.
+### FIFO Simulation Waveform
 
 ![FIFO Simulation Waveform](waveform.png)
 
-Contains the RTL simulation waveform showing FIFO read/write activity and status signals.
 
-![FIFO Simulation Output](simulation_output.png)
 
-Contains the QuestaSim simulation output showing successful compilation and simulation.
+### Simulation Output
 
-Tools & Technologies
-Verilog HDL
-QuestaSim
-EDA Playground
-RTL Simulation
-Waveform Debugging
-Key Concepts Demonstrated
-Synchronous FIFO
-RTL Design
-Sequential Logic
-Memory Arrays
-Read/Write Pointers
-Clocked Operations
-Reset Logic
-Full/Empty Detection
-RTL Simulation
-Waveform Analysis
-Future Improvements
+![Simulation Output](simulation_output.png)
 
-The following features can be added in future versions:
+## Tools Used
 
-Parameterized data width and FIFO depth
-Dedicated overflow and underflow testing
-Simultaneous read/write testing
-Extended constrained-random verification
-Functional coverage
-Synthesis using Xilinx Vivado
-FPGA implementation and timing analysis
+- Verilog HDL
+- QuestaSim
+- EDA Playground
+- EPWave
+
+## Result
+
+The Synchronous FIFO was successfully designed and simulated. The simulation verifies correct FIFO read/write operation, data ordering, and `full`/`empty` status flags.
