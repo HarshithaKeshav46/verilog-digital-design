@@ -141,7 +141,6 @@ The testbench verifies:
 ## Tools Used
 
 - Verilog HDL
-- QuestaSim
 - EDA Playground
 - EPWave
 
