@@ -45,6 +45,8 @@ The repository contains Verilog RTL implementations and testbenches for commonly
 | `Logic_Applications/prime_detector_3bit` | 3-bit prime number detector |
 | `Multiplexers` | 2:1, 4:1 and other multiplexer implementations |
 | `Shift_Registers` | SISO, SIPO, PISO and PIPO shift registers |
+| `Synchronous_FIFO` | RTL Implementation |
+
 
 ---
 
