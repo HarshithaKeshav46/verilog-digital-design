@@ -1,4 +1,4 @@
-# Synchronous FIFO Design & Verification using Verilog HDL
+# Synchronous FIFO RTL Design & Verification using Verilog HDL
 
 ## Overview
 
